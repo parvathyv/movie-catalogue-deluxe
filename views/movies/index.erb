@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Movie Catalog</title>
+      <link rel="stylesheet" href="/style.css"/>
+   </head>
+   <body>
+      <h1>Movies</h1>
+      <form method="get" action="/movies">
+         <input type="submit" name = "ratingssort" value="Ratings"> 
+         <input type="submit" name ="yearsort" value="Year"> 
+      </form>
+      <table style="width:75%">
+         <% @movie.each do |movies| %>
+         <tr>
+            <td> 
+               <a href = "/movies/<%= movies['id'] %>" ><%= movies['title'] %></a>  
+            </td>
+            <td style ="color:black"><%= movies['year'] %></td>
+            <td style ="color:black"><%= movies['rating'] %></td>
+            <td style ="color:black"><%= movies['genre_name'] %></td>
+            <td style ="color:black"><%= movies['studio_name'] %></td>
+         </tr>
+         <% end %>
+      </table>
+      <br>
+      <% if @flag_page %>
+         <a href = "/movies?page=<%= @page_no %>">Next</a>
+      <%end%>
+   </body>
+</html>

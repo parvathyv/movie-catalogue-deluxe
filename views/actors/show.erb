@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Actors & Movie Name</title>
+   </head>
+   <body>
+      <h1><%= @actor_name %></h1>
+      <ul class = "showoutput">
+         <% @show.each do |actors| %>
+         <a href = "/movies/<%= actors['movie_id'] %>" ><%= actors['movie_title'] %></a>
+         <p><%= actors['character'] %></p>
+         <% end %>
+      </ul>
+   </body>
+</html>

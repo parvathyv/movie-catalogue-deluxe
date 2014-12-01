@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Movie details</title>
+      <link rel="stylesheet" href="/style.css"/>
+   </head>
+   <body>
+      <h1><%= @movie_name %></h1>
+      <h3><%= @studio_name %></h3>
+      <h5><%= @genre_name %></h5>
+      <h7>Cast</h7>
+      <table style="width:75%">
+         <tr>
+            <th style ="color:black;text-align:left">Actor</th>
+            <th style="color:black;text-align:left"> Character played</th>
+         </tr>
+         <% @movie_detail_array.each do |details_hash| %>
+         <tr>
+            <td> <a href = "/actors/<%= details_hash['actor_id'] %>" ><%= details_hash['actor_name'] %></a> 
+            </td>
+            <td> <%= details_hash['character'] %>
+            </td>
+         </tr>
+         <% end %>
+      </table>
+   </body>
+</html>

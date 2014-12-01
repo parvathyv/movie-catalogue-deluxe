@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Movie Catalog</title>
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <h1>Actors</h1>
+      </div>
+      <div class="form_input">
+         <form action="/actors" method="get">
+            <label for="actor_name" id="form_label">Search Actor name </label><br>
+            <input type="text" id="actor_name"  placeholder="Actor name please!" name="actor_name"/><br><br>
+            <div class ="input_button">
+               <input type="submit" value = "SEARCH" id="submit_button"/>
+            </div>
+         </form>
+      </div>
+      <div>
+         <ul>
+            <% @show.each do |actors| %>
+            <table class = "output">
+               <tr>
+                  <td>
+                     <li><a href = "/actors/<%= actors['actors_id'] %>" ><%= actors['actor_name'] %></a></li>
+                  </td>
+                  <td>&nbsp</td>
+                  <td><%= actors['movie_count'] %></td>
+               </tr>
+            </table>
+            <% end %>
+         </ul>
+      </div>
+      <a class ="next" href = "/actors?page=<%= @apage_no %>" >Next</a>
+   </body>
+</html>
